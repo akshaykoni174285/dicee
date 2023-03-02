@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-// Widget randimg() {
-//   var value = Random().nextInt(5);
-//   value++;
-//   return Image.asset('images/dice${value}.png');
-// }
-
 void main() {
   runApp(const MyApp());
 }
@@ -21,7 +15,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    int rightval = 4;
     int leftval = 2;
 
     return MaterialApp(
@@ -47,24 +40,28 @@ class _MyAppState extends State<MyApp> {
             Expanded(
                 flex: 1,
                 child: TextButton(
+                  style: ButtonStyle(
+                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  ),
                   // style: ButtonStyle(
                   //   padding: MaterialStateProperty.all(EdgeInsets.zero),
                   // ),
                   onPressed: () {
                     setState(() {
-                      leftval = Random().nextInt(6) + 1;
+                      leftval = 2;
                     });
                   },
-                  child: Image.asset('images/dice${leftval}.png'),
+                  child: Image.asset('images/dice$leftval.png'),
                 )),
             Expanded(
               flex: 1,
               child: TextButton(
-                child: Image.asset('images/dice${rightval}.png'),
+                style: ButtonStyle(
+                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                ),
+                child: Image.asset('images/dice4.png'),
                 onPressed: () {
-                  setState(() {
-                    rightval = Random().nextInt(6) + 1;
-                  });
+                  setState(() {});
                 },
               ),
             ),
